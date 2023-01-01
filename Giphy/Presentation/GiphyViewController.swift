@@ -10,22 +10,22 @@ final class GiphyViewController: UIViewController {
     
     // Переменная Int -- Счетчик залайканых или задизлайканных гифок
     // Например showdGifCounter -- счетчика показанных гифок
-    var showGifCounter = 0
+    private var showGifCounter = 0
     
     // Переменная Int -- Количество понравившихся гифок
     // Например likedGifCounter -- счетчик любимых гифок
-    var likedGifCounter = 0
+    private var likedGifCounter = 0
     
     // @IBOutlet UILabel для счетчика гифок, например 1/10
     // Например -- @IBOutlet weak var counterLabel: UILabel!
-    @IBOutlet weak var counterLabel: UILabel!
+    @IBOutlet private weak var counterLabel: UILabel!
     
     // @IBOutlet UIImageView для Гифки
     // Например -- @IBOutlet weak var giphyImageView: UIImageView!
-    @IBOutlet weak var giphyImageView: UIImageView!
+    @IBOutlet private weak var giphyImageView: UIImageView!
     
     // @IBOutlet UIActivityIndicatorView загрузки гифки, так как она может загрухаться долго
-    @IBOutlet weak var giphyActivityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet private weak var giphyActivityIndicatorView: UIActivityIndicatorView!
     
     // Нажатие на кнопку лайка
     @IBAction func onYesButtonTapped(_ sender: UIButton) {
@@ -130,8 +130,8 @@ extension GiphyViewController: GiphyViewControllerProtocol {
         
         let model = AlertModel(
             title: "Мемы закончились!",
-            message: "Вам понравилось: \(likedGifCounter)\\10",
-            buttonText: "Хочу посмотреть еще гифок"
+            message: "Вам понравилось: \(likedGifCounter)/10",
+            buttonText: "Хочу посмотреть ещё гифок"
         ) { [weak self] _ in
             guard let self = self else { return }
             self.restart()
@@ -150,10 +150,6 @@ extension GiphyViewController: GiphyViewControllerProtocol {
     // Присвоить UIImageView.image = nil
     // Вызвать giphyActivityIndicatorView показа индикатора загрузки
     func showLoader() {
-        // presenter.saveGif(<Созданный UIImageView для @IBOutlet>.image)
-        // Например -- presenter.saveGif(giphyImageView.image)
-        presenter.saveGif(giphyImageView.image)
-        
         giphyActivityIndicatorView.startAnimating()
         giphyActivityIndicatorView.isHidden = false
     }
