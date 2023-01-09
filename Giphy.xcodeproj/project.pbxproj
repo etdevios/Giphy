@@ -11,7 +11,6 @@
 		B86EC752294E75280050617B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86EC751294E75280050617B /* SceneDelegate.swift */; };
 		B86EC757294E75280050617B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B86EC755294E75280050617B /* Main.storyboard */; };
 		B86EC759294E75290050617B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B86EC758294E75290050617B /* Assets.xcassets */; };
-		B86EC75C294E75290050617B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B86EC75A294E75290050617B /* LaunchScreen.storyboard */; };
 		B8FC1977294E794500DF78F1 /* GiphyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC1961294E794500DF78F1 /* GiphyError.swift */; };
 		B8FC1978294E794500DF78F1 /* GiphyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC1962294E794500DF78F1 /* GiphyModel.swift */; };
 		B8FC1979294E794500DF78F1 /* GiphyAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC1963294E794500DF78F1 /* GiphyAPIModel.swift */; };
@@ -30,7 +29,11 @@
 		F68DB66D295FFE4A0085E73B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F68DB66C295FFE4A0085E73B /* README.md */; };
 		F68DB6732960026F0085E73B /* YS Display-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F68DB6712960026E0085E73B /* YS Display-Medium.ttf */; };
 		F68DB6742960026F0085E73B /* YS Display-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F68DB6722960026E0085E73B /* YS Display-Bold.ttf */; };
-		F69799EC2960572A00908F27 /* Mini.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F69799EB2960572A00908F27 /* Mini.storyboard */; };
+		F6970862296C4CFE0008CC60 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6970864296C4CFE0008CC60 /* Localizable.strings */; };
+		F6970867296C4DD10008CC60 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6970866296C4DD10008CC60 /* String+Extensions.swift */; };
+		F6970868296CA1B90008CC60 /* Mini.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F697086A296CA1B90008CC60 /* Mini.storyboard */; };
+		F6970871296CA69B0008CC60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6970873296CA69B0008CC60 /* LaunchScreen.storyboard */; };
+		F6970879296CA8100008CC60 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F697087B296CA8100008CC60 /* InfoPlist.strings */; };
 		F69799F02961CC2300908F27 /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69799EF2961CC2300908F27 /* AlertPresenter.swift */; };
 		F69799F22961CC5400908F27 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69799F12961CC5400908F27 /* AlertModel.swift */; };
 		F69799F42961E9F100908F27 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69799F32961E9F100908F27 /* UIColor+Extensions.swift */; };
@@ -42,7 +45,6 @@
 		B86EC751294E75280050617B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B86EC756294E75280050617B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B86EC758294E75290050617B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B86EC75B294E75290050617B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B86EC75D294E75290050617B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8FC1961294E794500DF78F1 /* GiphyError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiphyError.swift; sourceTree = "<group>"; };
 		B8FC1962294E794500DF78F1 /* GiphyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiphyModel.swift; sourceTree = "<group>"; };
@@ -62,7 +64,15 @@
 		F68DB66C295FFE4A0085E73B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F68DB6712960026E0085E73B /* YS Display-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YS Display-Medium.ttf"; sourceTree = "<group>"; };
 		F68DB6722960026E0085E73B /* YS Display-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YS Display-Bold.ttf"; sourceTree = "<group>"; };
-		F69799EB2960572A00908F27 /* Mini.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mini.storyboard; sourceTree = "<group>"; };
+		F697085C296C4AD70008CC60 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		F6970865296C4D010008CC60 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F6970866296C4DD10008CC60 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		F6970869296CA1B90008CC60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Mini.storyboard; sourceTree = "<group>"; };
+		F697086C296CA1BC0008CC60 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Mini.strings; sourceTree = "<group>"; };
+		F6970875296CA6AF0008CC60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F697087A296CA8100008CC60 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F697087C296CA8140008CC60 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F697087D296CB1A70008CC60 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F69799EF2961CC2300908F27 /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
 		F69799F12961CC5400908F27 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		F69799F32961E9F100908F27 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
@@ -107,8 +117,8 @@
 				B86EC751294E75280050617B /* SceneDelegate.swift */,
 				F68DB66F296001EC0085E73B /* Resources */,
 				B86EC758294E75290050617B /* Assets.xcassets */,
-				B86EC75A294E75290050617B /* LaunchScreen.storyboard */,
 				B86EC75D294E75290050617B /* Info.plist */,
+				F6970873296CA69B0008CC60 /* LaunchScreen.storyboard */,
 			);
 			path = Giphy;
 			sourceTree = "<group>";
@@ -133,7 +143,7 @@
 				B8FC1967294E794500DF78F1 /* GiphyViewControllerProtocol.swift */,
 				B8FC1968294E794500DF78F1 /* GiphyPresenter.swift */,
 				B86EC755294E75280050617B /* Main.storyboard */,
-				F69799EB2960572A00908F27 /* Mini.storyboard */,
+				F697086A296CA1B90008CC60 /* Mini.storyboard */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -181,6 +191,7 @@
 			children = (
 				B8FC1976294E794500DF78F1 /* Data+Gif.swift */,
 				F69799F32961E9F100908F27 /* UIColor+Extensions.swift */,
+				F6970866296C4DD10008CC60 /* String+Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -188,6 +199,7 @@
 		F68DB66F296001EC0085E73B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F6970878296CA7D70008CC60 /* Localizable */,
 				F68DB6702960021D0085E73B /* GiphyFonts */,
 			);
 			path = Resources;
@@ -200,6 +212,15 @@
 				F68DB6712960026E0085E73B /* YS Display-Medium.ttf */,
 			);
 			path = GiphyFonts;
+			sourceTree = "<group>";
+		};
+		F6970878296CA7D70008CC60 /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				F697087B296CA8100008CC60 /* InfoPlist.strings */,
+				F6970864296C4CFE0008CC60 /* Localizable.strings */,
+			);
+			path = Localizable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +266,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = B86EC743294E75280050617B;
 			productRefGroup = B86EC74D294E75280050617B /* Products */;
@@ -261,12 +283,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B86EC75C294E75290050617B /* LaunchScreen.storyboard in Resources */,
 				F68DB6742960026F0085E73B /* YS Display-Bold.ttf in Resources */,
+				F6970871296CA69B0008CC60 /* LaunchScreen.storyboard in Resources */,
 				B86EC759294E75290050617B /* Assets.xcassets in Resources */,
 				F68DB66D295FFE4A0085E73B /* README.md in Resources */,
 				B86EC757294E75280050617B /* Main.storyboard in Resources */,
-				F69799EC2960572A00908F27 /* Mini.storyboard in Resources */,
+				F6970862296C4CFE0008CC60 /* Localizable.strings in Resources */,
+				F6970868296CA1B90008CC60 /* Mini.storyboard in Resources */,
+				F6970879296CA8100008CC60 /* InfoPlist.strings in Resources */,
 				F68DB6732960026F0085E73B /* YS Display-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,6 +340,7 @@
 				B8FC1979294E794500DF78F1 /* GiphyAPIModel.swift in Sources */,
 				B8FC1977294E794500DF78F1 /* GiphyError.swift in Sources */,
 				B86EC752294E75280050617B /* SceneDelegate.swift in Sources */,
+				F6970867296C4DD10008CC60 /* String+Extensions.swift in Sources */,
 				B8FC1986294E794500DF78F1 /* Data+Gif.swift in Sources */,
 				B8FC1978294E794500DF78F1 /* GiphyModel.swift in Sources */,
 				B8FC197A294E794500DF78F1 /* GiphyViewController.swift in Sources */,
@@ -329,16 +354,44 @@
 			isa = PBXVariantGroup;
 			children = (
 				B86EC756294E75280050617B /* Base */,
+				F697085C296C4AD70008CC60 /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		B86EC75A294E75290050617B /* LaunchScreen.storyboard */ = {
+		F6970864296C4CFE0008CC60 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B86EC75B294E75290050617B /* Base */,
+				F6970865296C4D010008CC60 /* ru */,
+				F697087D296CB1A70008CC60 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		F697086A296CA1B90008CC60 /* Mini.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6970869296CA1B90008CC60 /* Base */,
+				F697086C296CA1BC0008CC60 /* ru */,
+			);
+			name = Mini.storyboard;
+			sourceTree = "<group>";
+		};
+		F6970873296CA69B0008CC60 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6970875296CA6AF0008CC60 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F697087B296CA8100008CC60 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F697087A296CA8100008CC60 /* en */,
+				F697087C296CA8140008CC60 /* ru */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -348,6 +401,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -408,6 +462,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

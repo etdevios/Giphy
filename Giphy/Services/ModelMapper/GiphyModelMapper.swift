@@ -6,7 +6,7 @@ final class GiphyModelMapper: GiphyModelMapperProtocol {
     func map(model: GiphyAPIModel) -> GiphyModel? {
         guard
             let id = model.data?.id,
-            let url = model.data?.images?.downsized_large?.url
+            let url = model.data?.images?.preview_gif?.url
         else {
             return nil
         }

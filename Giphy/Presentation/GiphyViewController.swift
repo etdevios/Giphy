@@ -128,11 +128,12 @@ extension GiphyViewController: GiphyViewControllerProtocol {
         // Кнопка -- Хочу посмотреть еще гифок
         //
         // При нажатии сбросить все счетчики -- вызов метода restart
+        let messageLocalized = "Did you like it: %d/10".localized()
         
         let model = AlertModel(
-            title: "Мемы закончились!",
-            message: "Вам понравилось: \(likedGifCounter)/10",
-            buttonText: "Хочу посмотреть ещё гифок"
+            title: "Memes are over!".localized(),
+            message: String.localizedStringWithFormat(messageLocalized, likedGifCounter),
+            buttonText: "I want to see more gifs".localized()
         ) { [weak self] _ in
             guard let self = self else { return }
             self.restart()
