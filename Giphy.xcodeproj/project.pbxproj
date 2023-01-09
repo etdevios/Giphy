@@ -199,7 +199,7 @@
 		F68DB66F296001EC0085E73B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F6970878296CA7D70008CC60 /* Localizable */,
+				F6970878296CA7D70008CC60 /* Localizations */,
 				F68DB6702960021D0085E73B /* GiphyFonts */,
 			);
 			path = Resources;
@@ -214,13 +214,13 @@
 			path = GiphyFonts;
 			sourceTree = "<group>";
 		};
-		F6970878296CA7D70008CC60 /* Localizable */ = {
+		F6970878296CA7D70008CC60 /* Localizations */ = {
 			isa = PBXGroup;
 			children = (
 				F697087B296CA8100008CC60 /* InfoPlist.strings */,
 				F6970864296C4CFE0008CC60 /* Localizable.strings */,
 			);
-			path = Localizable;
+			path = Localizations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
