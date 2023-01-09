@@ -4,8 +4,7 @@ struct AlertPresenter {
     
     private(set) weak var alertPresent: UIViewController?
     
-    func showAlert(_ model: AlertModel) {
-        
+    func showAlert(with model: AlertModel) {
         let alert = UIAlertController(
             title: model.title,
             message: model.message,
@@ -21,5 +20,4 @@ struct AlertPresenter {
         alert.addAction(action)
         alertPresent?.present(alert, animated: true)
     }
-    
 }

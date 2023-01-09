@@ -105,7 +105,8 @@ private extension GiphyViewController {
     }
     
     func checkLookedTenGifts() {
-        if showGifCounter > 9 {
+        let maxAttempts = 9
+        if showGifCounter > maxAttempts {
             showEndOfGiphy()
             restart()
         } else {
@@ -162,7 +163,7 @@ extension GiphyViewController: GiphyViewControllerProtocol {
     }
     
     func presentAlert(_ alert: AlertModel) {
-        alertPresenter?.showAlert(alert)
+        alertPresenter?.showAlert(with: alert)
     }
     
     func activatedButton() {
