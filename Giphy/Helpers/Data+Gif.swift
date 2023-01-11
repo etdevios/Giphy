@@ -33,9 +33,9 @@ extension UIImage {
     
     class func delayForImageAtIndex(_ index: Int, source: CGImageSource!) -> Double {
         var delay = 0.1
-        
         let cfProperties = CGImageSourceCopyPropertiesAtIndex(source, index, nil)
         let gifPropertiesPointer = UnsafeMutablePointer<UnsafeRawPointer?>.allocate(capacity: 0)
+        
         if CFDictionaryGetValueIfPresent(
             cfProperties,
             Unmanaged.passUnretained(kCGImagePropertyGIFDictionary).toOpaque(),
@@ -53,6 +53,7 @@ extension UIImage {
             ),
             to: AnyObject.self
         )
+        
         if delayObject.doubleValue == 0 {
             delayObject = unsafeBitCast(
                 CFDictionaryGetValue(

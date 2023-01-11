@@ -112,7 +112,6 @@ private extension GiphyViewController {
             updateCounterLabel()
         }
     }
-    
 }
 
 // MARK: - GiphyViewControllerProtocol

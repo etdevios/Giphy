@@ -8,4 +8,3 @@ extension UIColor {
     static var ypRed: UIColor {UIColor(named: "YPRed") ?? .clear}
     static var ypWhite: UIColor {UIColor(named: "YPWhite") ?? .clear}
 }
-
