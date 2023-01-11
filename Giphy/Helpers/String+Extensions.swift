@@ -7,6 +7,7 @@ extension String {
             tableName: "Localizable",
             bundle: .main,
             value: self,
-            comment: self)
+            comment: self
+        )
     }
 }

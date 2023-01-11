@@ -10,7 +10,7 @@ extension GiphyAPIModel {
     struct Data: Decodable {
         // Уникальный идентификатор гифки
         let id: String?
-
+        
         // Ссылка для скачивания гифки
         let images: Images?
     }
@@ -24,6 +24,6 @@ extension GiphyAPIModel.Data {
 
 extension GiphyAPIModel.Data.Images {
     struct PreviewGif: Decodable {
-            let url: URL?
-        }
+        let url: URL?
+    }
 }

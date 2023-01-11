@@ -1,5 +1,13 @@
 import UIKit
 
+//В приложении используется архитектурный паттерн MVP (Model, View, Presenter)
+
+// Model - представление наших данных.
+// View - это UIViewController и его подклассы.
+// Presenter — не имеет отношения к жизненному циклу View Controller.
+// View может быть легко заменена Mock-объектами, поэтому в Presenter нет layout-кода,
+// но он отвечает за обновление View в соответствии с новыми данными и состоянием
+
 // Экран на котором показываются гифки
 final class GiphyViewController: UIViewController {
     
@@ -8,23 +16,19 @@ final class GiphyViewController: UIViewController {
     
     private var alertPresenter: AlertPresenter?
     
-    // Переменная Int -- Счетчик залайканых или задизлайканных гифок
-    // Например showdGifCounter -- счетчика показанных гифок
+    // Переменная Int -- Счетчик залайканых или задизлайканых гифок
     private var showGifCounter = 0
     
     // Переменная Int -- Количество понравившихся гифок
-    // Например likedGifCounter -- счетчик любимых гифок
     private var likedGifCounter = 0
     
     // @IBOutlet UILabel для счетчика гифок, например 1/10
-    // Например -- @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet private weak var counterLabel: UILabel!
     
     // @IBOutlet UIImageView для Гифки
-    // Например -- @IBOutlet weak var giphyImageView: UIImageView!
     @IBOutlet private weak var giphyImageView: UIImageView!
     
-    // @IBOutlet UIActivityIndicatorView загрузки гифки, так как она может загрухаться долго
+    // @IBOutlet UIActivityIndicatorView загрузки гифки, так как она может загружаться долго
     @IBOutlet private weak var giphyActivityIndicatorView: UIActivityIndicatorView!
     
     // Нажатие на кнопку лайка
@@ -40,12 +44,9 @@ final class GiphyViewController: UIViewController {
         checkLookedTenGifts()
         
         // Сохраняем понравившуюся гифку
-        // presenter.saveGif(<Созданный UIImageView для @IBOutlet>.image)
-        // Например -- presenter.saveGif(giphyImageView.image)
         presenter.saveGif(giphyImageView.image)
         
         // Загружаем следующую гифку
-        // presenter.fetchNextGiphy()
         presenter.fetchNextGiphy()
     }
     
@@ -53,7 +54,7 @@ final class GiphyViewController: UIViewController {
     @IBAction func onNoButtonTapped(_ sender: UIButton) {
         // Проверка на то просмотрели или нет 10 гифок
         
-        // Если все 10 гифок просомтрели необходимо показать UIAlertController о завершении
+        // Если все 10 гифок просмотрели необходимо показать UIAlertController о завершении
         // При нажатии на кнопку в UIAlertController необходимо сбросить счетчики и начать
         sender.isEnabled = false
         highlightImageBorder(isCorrectAnswer: false)
@@ -61,7 +62,6 @@ final class GiphyViewController: UIViewController {
         checkLookedTenGifts()
         
         // Загружаем следующую гифку
-        // presenter.fetchNextGiphy()
         presenter.fetchNextGiphy()
     }
     
@@ -100,7 +100,6 @@ private extension GiphyViewController {
         showGifCounter = 1
         likedGifCounter = 0
         counterLabel.text = "\(likedGifCounter)/\(showGifCounter)"
-        // presenter.fetchNextGiphy()
         presenter.fetchNextGiphy()
     }
     
@@ -143,15 +142,13 @@ extension GiphyViewController: GiphyViewControllerProtocol {
     
     // Показать гифку UIImage
     func showGiphy(_ image: UIImage?) {
-        // giphyImageView.image = image
         giphyImageView.image = image
         activatedButton()
     }
     
-    // Показать лоадер
-    // Присвоить UIImageView.image = nil
     // Вызвать giphyActivityIndicatorView показа индикатора загрузки
     func showLoader() {
+        giphyImageView.image = nil
         giphyActivityIndicatorView.startAnimating()
         giphyActivityIndicatorView.isHidden = false
     }
@@ -173,7 +170,6 @@ extension GiphyViewController: GiphyViewControllerProtocol {
     }
     
     func highlightImageBorder(isCorrectAnswer: Bool) {
-        
         giphyImageView.layer.masksToBounds = true
         giphyImageView.layer.borderWidth = 8
         giphyImageView.layer.borderColor = isCorrectAnswer ? UIColor.ypGreen.cgColor : UIColor.ypRed.cgColor

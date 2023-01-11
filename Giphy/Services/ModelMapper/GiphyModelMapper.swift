@@ -1,7 +1,7 @@
 // Слой маппинга моделей
 final class GiphyModelMapper: GiphyModelMapperProtocol {
     // MARK: - GiphyURLSessionProtocol
-
+    
     // Преобразуется сетевая модель в бизнес модель
     func map(model: GiphyAPIModel) -> GiphyModel? {
         guard
@@ -10,7 +10,7 @@ final class GiphyModelMapper: GiphyModelMapperProtocol {
         else {
             return nil
         }
-
+        
         return GiphyModel(id: id, url: url)
     }
 }

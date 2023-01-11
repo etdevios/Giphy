@@ -4,13 +4,13 @@ import Foundation
 // Возвращает сетевую модель GiphyAPIModel
 final class GiphyURLSession: GiphyURLSessionProtocol {
     private let urlSession: URLSession
-
+    
     // MARK: - GiphyURLSessionProtocol
-
+    
     init(urlSession: URLSession = URLSession.shared) {
         self.urlSession = urlSession
     }
-
+    
     func fetchGiphy(completion: ((Result<GiphyAPIModel, GiphyError>) -> Void)?) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
@@ -21,7 +21,7 @@ final class GiphyURLSession: GiphyURLSessionProtocol {
             .init(name: "tag", value: ""),
             .init(name: "rating", value: "g")
         ]
-
+        
         guard let url = urlComponents.url else {
             completion?(.failure(GiphyError.wrongRequestURL))
             return
@@ -32,7 +32,7 @@ final class GiphyURLSession: GiphyURLSessionProtocol {
                 completion?(.failure(GiphyError.emptyData))
                 return
             }
-
+            
             do {
                 let apiModel = try JSONDecoder().decode(GiphyAPIModel.self, from: data)
                 completion?(.success(apiModel))
