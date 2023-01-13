@@ -7,6 +7,7 @@ final class GiphyPresenter: GiphyPresenterProtocol {
     private var giphyFactory: GiphyFactoryProtocol
     
     // Слой View для общения и отображения случайной гифки
+    
     // Так как у нас случай цикла сильных ссылок (сущность viewController владеет сущностью GiphyPresenter,
     // а сущность GiphyPresenter владеет сущностью viewController) то в одном из случаев нужно использовать
     // «слабый» захват («weak capturing»).
@@ -70,9 +71,9 @@ extension GiphyPresenter: GiphyFactoryDelegate {
             
             // Показать ошибку
             let model = AlertModel(
-                title: "Что-то пошло не так(",
-                message: "Невозможно загрузить данные",
-                buttonText: "Попробовать еще раз"
+                title: "Something went wrong(".localized(),
+                message: "Unable to load data".localized(),
+                buttonText: "Try again".localized()
             ) { [weak self] _ in
                 guard let self = self else { return }
                 print(error)

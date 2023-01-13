@@ -1,4 +1,6 @@
 "Memes are over!" = "Мемы закончились!";
 "Did you like it: %d/10" = "Вам понравилось: %d/10";
 "I want to see more gifs" = "Хочу посмотреть ещё гифок";
-
+"Something went wrong(" = "Что-то пошло не так(";
+"Unable to load data" = "Невозможно загрузить данные";
+"Try again" = "Попробовать еще раз";
