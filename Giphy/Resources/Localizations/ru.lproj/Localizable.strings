@@ -1,5 +1,6 @@
+"Text title label" = "Гифки:";
 "Memes are over!" = "Мемы закончились!";
-"Did you like it: %d/10" = "Вам понравилось: %d/10";
+"Did you like it: %@" = "Вам понравилось: %d";
 "I want to see more gifs" = "Хочу посмотреть ещё гифок";
 "Something went wrong(" = "Что-то пошло не так(";
 "Unable to load data" = "Невозможно загрузить данные";

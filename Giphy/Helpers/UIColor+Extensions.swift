@@ -7,4 +7,5 @@ extension UIColor {
     static var ypGreen: UIColor {UIColor(named: "YPGreen") ?? .clear}
     static var ypRed: UIColor {UIColor(named: "YPRed") ?? .clear}
     static var ypWhite: UIColor {UIColor(named: "YPWhite") ?? .clear}
+    static var ypBlue: UIColor {UIColor(named: "YPBlue") ?? .clear}
 }

@@ -11,8 +11,20 @@ import UIKit
 // Экран на котором показываются гифки
 final class GiphyViewController: UIViewController {
     
-    @IBOutlet private weak var noButton: UIButton!
-    @IBOutlet private weak var yesButton: UIButton!
+    private let mainStackView = UIStackView()
+    
+    private let titleStackView = UIStackView()
+    private let titleLabel = UILabel()
+    private let counterLabel = UILabel()
+    
+    private let giphyImageView = UIImageView()
+    
+    private let paddingView = UIView()
+    private let buttonStackView = UIStackView()
+    private let yesButton = UIButton()
+    private let noButton = UIButton()
+    
+    private let giphyActivityIndicatorView = UIActivityIndicatorView()
     
     private var alertPresenter: AlertPresenter?
     
@@ -22,49 +34,6 @@ final class GiphyViewController: UIViewController {
     // Переменная Int -- Количество понравившихся гифок
     private var likedGifCounter = 0
     
-    // @IBOutlet UILabel для счетчика гифок, например 1/10
-    @IBOutlet private weak var counterLabel: UILabel!
-    
-    // @IBOutlet UIImageView для Гифки
-    @IBOutlet private weak var giphyImageView: UIImageView!
-    
-    // @IBOutlet UIActivityIndicatorView загрузки гифки, так как она может загружаться долго
-    @IBOutlet private weak var giphyActivityIndicatorView: UIActivityIndicatorView!
-    
-    // Нажатие на кнопку лайка
-    @IBAction func onYesButtonTapped(_ sender: UIButton) {
-        // Проверка на то просмотрели или нет 10 гифок
-        
-        // Если все 10 гифок просомтрели необходимо показать UIAlertController о завершении
-        // При нажатии на кнопку в UIAlertController необходимо сбросить счетчики и начать сначала
-        sender.isEnabled = false
-        highlightImageBorder(isCorrectAnswer: true)
-        // Иначе, если еще не просмотрели 10 гифок, то увеличиваем счетчик и обновляем UIlabel с счетчиком
-        likedGifCounter += 1
-        checkLookedTenGifts()
-        
-        // Сохраняем понравившуюся гифку
-        presenter.saveGif(giphyImageView.image)
-        
-        // Загружаем следующую гифку
-        presenter.fetchNextGiphy()
-    }
-    
-    // Нажатие на кнопку дизлайка
-    @IBAction func onNoButtonTapped(_ sender: UIButton) {
-        // Проверка на то просмотрели или нет 10 гифок
-        
-        // Если все 10 гифок просмотрели необходимо показать UIAlertController о завершении
-        // При нажатии на кнопку в UIAlertController необходимо сбросить счетчики и начать
-        sender.isEnabled = false
-        highlightImageBorder(isCorrectAnswer: false)
-        // Иначе, если еще не просмотрели 10 гифок, то увеличиваем счетчик и обновляем UIlabel с счетчиком
-        checkLookedTenGifts()
-        
-        // Загружаем следующую гифку
-        presenter.fetchNextGiphy()
-    }
-    
     // Слой Presenter - бизнес логика приложения, к которым должен общаться UIViewController
     private lazy var presenter: GiphyPresenterProtocol = {
         let presenter = GiphyPresenter()
@@ -72,50 +41,196 @@ final class GiphyViewController: UIViewController {
         return presenter
     }()
     
-    // MARK: - Жизенный цикл экрана
-    
+    // MARK: - Жизненный цикл экрана
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        actionButton()
+        applyStyle()
+        applyLayout()
         restart()
         alertPresenter = AlertPresenter(alertPresent: self)
     }
 }
 
-// MARK: - Приватные методы
-
+// MARK: - Приватные методы и UI
 private extension GiphyViewController {
-    // Увеличиваем счетчик просмотренных гифок на 1
-    // Обновляем UILabel который находится в верхнем UIStackView и отвечает за количество просмотренных гифок
-    // Обновляем счетчик просмотренных гифок UIlabel
-    func updateCounterLabel() {
-        showGifCounter += 1
-        counterLabel.text = "\(likedGifCounter)/\(showGifCounter)"
+    func applyStyle() {
+        view.backgroundColor = Theme.backgroundColor
+        
+        applyStyleLabel(
+            titleLabel,
+            text: "Text title label".localized()
+        )
+        applyStyleLabel(
+            counterLabel,
+            textAlignment: .right
+        )
+        
+        giphyImageView.image = UIImage(named: "Giphy logo") ?? UIImage()
+        giphyImageView.contentMode = .scaleAspectFit
+        giphyImageView.layer.cornerRadius = Theme.imageCornerRadius
+        
+        applyStyleAnswerButton(yesButton, title: "👍")
+        applyStyleAnswerButton(noButton, title: "👎")
+        
+        giphyActivityIndicatorView.style = .large
+        giphyActivityIndicatorView.color = .ypWhite
     }
     
-    // Перезапускаем счетчики просмотренных гифок и понравившихся гифок
-    // Обновляем UILabel который находится в верхнем UIStackView и отвечает за количество просмотренных гифок
-    // Загружаем гифку
+    func applyLayout() {
+        arrangeStackView(
+            mainStackView,
+            subviews: [
+                titleStackView,
+                giphyImageView,
+                paddingView
+            ],
+            spacing: Theme.spacing,
+            axis: .vertical
+        )
+        
+        arrangeStackView(
+            titleStackView,
+            subviews: [titleLabel, counterLabel]
+        )
+        counterLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        
+        arrangeStackView(
+            buttonStackView,
+            subviews: [noButton, yesButton],
+            spacing: Theme.spacing,
+            distribution: .fillEqually
+        )
+        
+        buttonStackView.translatesAutoresizingMaskIntoConstraints = false
+        paddingView.addSubview(buttonStackView)
+        buttonStackView.setContentCompressionResistancePriority(.required, for: .vertical)
+        
+        [mainStackView, giphyActivityIndicatorView].forEach { item in
+            item.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(item)
+        }
+        
+        NSLayoutConstraint.activate([
+            mainStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Theme.leftOffset),
+            mainStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Theme.leftOffset),
+            mainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Theme.topOffset),
+            mainStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            
+            titleStackView.heightAnchor.constraint(equalToConstant: Theme.titleStackHeight),
+            
+            giphyImageView.widthAnchor.constraint(equalTo: giphyImageView.heightAnchor, multiplier: Theme.imageHeightAspect),
+            
+            giphyActivityIndicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            giphyActivityIndicatorView.centerYAnchor.constraint(equalTo: giphyImageView.centerYAnchor),
+            giphyActivityIndicatorView.heightAnchor.constraint(equalToConstant: Theme.spacing),
+            giphyActivityIndicatorView.widthAnchor.constraint(equalToConstant: Theme.spacing),
+            
+            buttonStackView.leadingAnchor.constraint(equalTo: paddingView.leadingAnchor, constant: Theme.leftOffsetButtonStack),
+            buttonStackView.trailingAnchor.constraint(equalTo: paddingView.trailingAnchor, constant: -Theme.leftOffsetButtonStack),
+            buttonStackView.centerYAnchor.constraint(equalTo: paddingView.centerYAnchor),
+            
+            buttonStackView.heightAnchor.constraint(equalToConstant: Theme.buttonHeight)
+        ])
+    }
+    
+    func actionButton() {
+        yesButton.addTarget(self, action: #selector(yesButtonTapped), for: .primaryActionTriggered)
+        noButton.addTarget(self, action: #selector(noButtonTapped), for: .primaryActionTriggered)
+    }
+    
+    // MARK: Supporting methods
+    func arrangeStackView(
+        _ stackView: UIStackView,
+        subviews: [UIView],
+        spacing: CGFloat = 0,
+        axis: NSLayoutConstraint.Axis = .horizontal,
+        distribution: UIStackView.Distribution = .fill,
+        alignment: UIStackView.Alignment = .fill
+    ) {
+        stackView.axis = axis
+        stackView.spacing = spacing
+        stackView.distribution = distribution
+        stackView.alignment = alignment
+        
+        subviews.forEach { item in
+            item.translatesAutoresizingMaskIntoConstraints = false
+            stackView.addArrangedSubview(item)
+        }
+    }
+    
+    func applyStyleLabel(
+        _ label: UILabel,
+        text: String = "",
+        font: UIFont? = Theme.mediumLargeFont,
+        textColor: UIColor = .ypWhite,
+        textAlignment: NSTextAlignment = .left,
+        numberOfLines: Int = 1
+    ) {
+        label.text = text
+        label.font = font
+        label.textColor = textColor
+        label.textAlignment = textAlignment
+        label.numberOfLines = numberOfLines
+    }
+    
+    func applyStyleAnswerButton(_ button: UIButton, title: String) {
+        button.setTitle(title, for: .normal)
+        button.titleLabel?.font = Theme.mediumLargeFont
+        button.setTitleColor(.ypBlack, for: .normal)
+        button.backgroundColor = .ypWhite
+        button.layer.cornerRadius = Theme.buttonCornerRadius
+        button.layer.masksToBounds = true
+        button.isEnabled = false
+    }
+    
+    func setGiphyImageViewBorder(width: CGFloat = 0, color: CGColor = UIColor.ypWhite.cgColor) {
+        giphyImageView.layer.borderWidth = width
+        giphyImageView.layer.borderColor = color
+    }
+    
     func restart() {
         showGifCounter = 1
         likedGifCounter = 0
-        counterLabel.text = "\(likedGifCounter)/\(showGifCounter)"
+        setTextForCounterLabel()
         presenter.fetchNextGiphy()
+    }
+    
+    func didAnswer(isYes: Bool) {
+        if isYes {
+            likedGifCounter += 1
+            // Сохраняем понравившуюся гифку
+            presenter.saveGif(giphyImageView.image)
+        }
+        checkLookedTenGifts()
+        showImageBorder(isAnswer: isYes)
+        setTextForCounterLabel()
     }
     
     func checkLookedTenGifts() {
         let maxAttempts = 9
         if showGifCounter > maxAttempts {
             showEndOfGiphy()
-            restart()
         } else {
-            updateCounterLabel()
+            showGifCounter += 1
+            presenter.fetchNextGiphy()
         }
+    }
+    
+    func setTextForCounterLabel() {
+        counterLabel.text = "\(likedGifCounter)/\(showGifCounter)"
+    }
+    
+    func showImageBorder(isAnswer: Bool) {
+        let color = isAnswer ? UIColor.ypGreen.cgColor : UIColor.ypRed.cgColor
+        setGiphyImageViewBorder(width: Theme.imageAnswerBorderWidth, color: color)
+        
+        [noButton, yesButton].forEach { $0.isEnabled = false }
     }
 }
 
 // MARK: - GiphyViewControllerProtocol
-
 extension GiphyViewController: GiphyViewControllerProtocol {
     // Показ ошибки UIAlertController, что не удалось загрузить гифку
     
@@ -135,6 +250,7 @@ extension GiphyViewController: GiphyViewControllerProtocol {
         ) { [weak self] _ in
             guard let self = self else { return }
             self.restart()
+            self.giphyImageView.image = UIImage(named: "Giphy logo") ?? UIImage()
         }
         presentAlert(model)
     }
@@ -147,7 +263,6 @@ extension GiphyViewController: GiphyViewControllerProtocol {
     
     // Вызвать giphyActivityIndicatorView показа индикатора загрузки
     func showLoader() {
-        giphyImageView.image = nil
         giphyActivityIndicatorView.startAnimating()
         giphyActivityIndicatorView.isHidden = false
     }
@@ -155,8 +270,7 @@ extension GiphyViewController: GiphyViewControllerProtocol {
     // Остановить giphyActivityIndicatorView показа индикатора загрузки
     func hideHoaler() {
         giphyActivityIndicatorView.stopAnimating()
-        giphyActivityIndicatorView.isHidden = true
-        giphyImageView.layer.borderWidth = 0
+        setGiphyImageViewBorder()
     }
     
     func presentAlert(_ alert: AlertModel) {
@@ -164,13 +278,27 @@ extension GiphyViewController: GiphyViewControllerProtocol {
     }
     
     func activatedButton() {
-        noButton.isEnabled = true
-        yesButton.isEnabled = true
+        [noButton, yesButton].forEach { $0.isEnabled = true }
+    }
+}
+
+// MARK: - Actions
+private extension GiphyViewController {
+    // Нажатие на кнопку лайка
+    @objc private func yesButtonTapped() {
+        // Проверка на то просмотрели или нет 10 гифок
+        // Если все 10 гифок просмотрели необходимо показать UIAlertController о завершении
+        // При нажатии на кнопку в UIAlertController необходимо сбросить счетчики и начать сначала
+        // Иначе, если еще не просмотрели 10 гифок, то увеличиваем счетчик и обновляем UIlabel с счетчиком
+        didAnswer(isYes: true)
     }
     
-    func highlightImageBorder(isCorrectAnswer: Bool) {
-        giphyImageView.layer.masksToBounds = true
-        giphyImageView.layer.borderWidth = 8
-        giphyImageView.layer.borderColor = isCorrectAnswer ? UIColor.ypGreen.cgColor : UIColor.ypRed.cgColor
+    // Нажатие на кнопку дизлайка
+    @objc private func noButtonTapped() {
+        // Проверка на то просмотрели или нет 10 гифок
+        // Если все 10 гифок просмотрели необходимо показать UIAlertController о завершении
+        // При нажатии на кнопку в UIAlertController необходимо сбросить счетчики и начать
+        // Иначе, если еще не просмотрели 10 гифок, то увеличиваем счетчик и обновляем UIlabel с счетчиком
+        didAnswer(isYes: false)
     }
 }
