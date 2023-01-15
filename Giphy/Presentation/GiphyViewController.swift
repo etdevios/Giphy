@@ -99,7 +99,7 @@ private extension GiphyViewController {
         arrangeStackView(
             buttonStackView,
             subviews: [noButton, yesButton],
-            spacing: Theme.spacing,
+            spacing: Theme.spacingForButton,
             distribution: .fillEqually
         )
         
@@ -127,9 +127,9 @@ private extension GiphyViewController {
             giphyActivityIndicatorView.heightAnchor.constraint(equalToConstant: Theme.spacing),
             giphyActivityIndicatorView.widthAnchor.constraint(equalToConstant: Theme.spacing),
             
-            buttonStackView.leadingAnchor.constraint(equalTo: paddingView.leadingAnchor, constant: Theme.leftOffsetButtonStack),
-            buttonStackView.trailingAnchor.constraint(equalTo: paddingView.trailingAnchor, constant: -Theme.leftOffsetButtonStack),
-            buttonStackView.centerYAnchor.constraint(equalTo: paddingView.centerYAnchor),
+            buttonStackView.leadingAnchor.constraint(equalTo: paddingView.leadingAnchor),
+            buttonStackView.trailingAnchor.constraint(equalTo: paddingView.trailingAnchor),
+            buttonStackView.topAnchor.constraint(equalTo: paddingView.topAnchor),
             
             buttonStackView.heightAnchor.constraint(equalToConstant: Theme.buttonHeight)
         ])
@@ -163,7 +163,7 @@ private extension GiphyViewController {
     func applyStyleLabel(
         _ label: UILabel,
         text: String = "",
-        font: UIFont? = Theme.mediumLargeFont,
+        font: UIFont? = Theme.mediumFont,
         textColor: UIColor = .ypWhite,
         textAlignment: NSTextAlignment = .left,
         numberOfLines: Int = 1
@@ -177,7 +177,7 @@ private extension GiphyViewController {
     
     func applyStyleAnswerButton(_ button: UIButton, title: String) {
         button.setTitle(title, for: .normal)
-        button.titleLabel?.font = Theme.mediumLargeFont
+        button.titleLabel?.font = Theme.boldLargeFont
         button.setTitleColor(.ypBlack, for: .normal)
         button.backgroundColor = .ypWhite
         button.layer.cornerRadius = Theme.buttonCornerRadius

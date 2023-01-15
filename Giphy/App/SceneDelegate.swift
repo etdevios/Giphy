@@ -14,18 +14,6 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let viewController = GiphyViewController()
         window.rootViewController = viewController
-        //FIXME: исправить под верстку кодом на разные экраны.
-//        let screenWidth = UIScreen.main.bounds.width
-//
-//        var currentViewController: UIViewController!
-//        switch screenWidth {
-//        case 320:
-//            currentViewController = UIStoryboard(name: "Mini", bundle: nil).instantiateInitialViewController()
-//        default:
-//            currentViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
-//        }
-
-//        window.rootViewController = currentViewController
         window.makeKeyAndVisible()
         self.window = window
     }

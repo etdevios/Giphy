@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		B86EC750294E75280050617B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86EC74F294E75280050617B /* AppDelegate.swift */; };
 		B86EC752294E75280050617B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86EC751294E75280050617B /* SceneDelegate.swift */; };
-		B86EC757294E75280050617B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B86EC755294E75280050617B /* Main.storyboard */; };
 		B86EC759294E75290050617B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B86EC758294E75290050617B /* Assets.xcassets */; };
 		B8FC1977294E794500DF78F1 /* GiphyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC1961294E794500DF78F1 /* GiphyError.swift */; };
 		B8FC1978294E794500DF78F1 /* GiphyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC1962294E794500DF78F1 /* GiphyModel.swift */; };
@@ -31,7 +30,6 @@
 		F68DB6742960026F0085E73B /* YS Display-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F68DB6722960026E0085E73B /* YS Display-Bold.ttf */; };
 		F6970862296C4CFE0008CC60 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6970864296C4CFE0008CC60 /* Localizable.strings */; };
 		F6970867296C4DD10008CC60 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6970866296C4DD10008CC60 /* String+Extensions.swift */; };
-		F6970868296CA1B90008CC60 /* Mini.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F697086A296CA1B90008CC60 /* Mini.storyboard */; };
 		F6970871296CA69B0008CC60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6970873296CA69B0008CC60 /* LaunchScreen.storyboard */; };
 		F6970879296CA8100008CC60 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F697087B296CA8100008CC60 /* InfoPlist.strings */; };
 		F69799F02961CC2300908F27 /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69799EF2961CC2300908F27 /* AlertPresenter.swift */; };
@@ -44,7 +42,6 @@
 		B86EC74C294E75280050617B /* Giphy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Giphy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86EC74F294E75280050617B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B86EC751294E75280050617B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B86EC756294E75280050617B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B86EC758294E75290050617B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B86EC75D294E75290050617B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8FC1961294E794500DF78F1 /* GiphyError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiphyError.swift; sourceTree = "<group>"; };
@@ -65,11 +62,8 @@
 		F68DB66C295FFE4A0085E73B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F68DB6712960026E0085E73B /* YS Display-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YS Display-Medium.ttf"; sourceTree = "<group>"; };
 		F68DB6722960026E0085E73B /* YS Display-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YS Display-Bold.ttf"; sourceTree = "<group>"; };
-		F697085C296C4AD70008CC60 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		F6970865296C4D010008CC60 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F6970866296C4DD10008CC60 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
-		F6970869296CA1B90008CC60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Mini.storyboard; sourceTree = "<group>"; };
-		F697086C296CA1BC0008CC60 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Mini.strings; sourceTree = "<group>"; };
 		F6970875296CA6AF0008CC60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F697087A296CA8100008CC60 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F697087C296CA8140008CC60 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -143,8 +137,6 @@
 				B8FC1966294E794500DF78F1 /* GiphyPresenterProtocol.swift */,
 				B8FC1967294E794500DF78F1 /* GiphyViewControllerProtocol.swift */,
 				B8FC1968294E794500DF78F1 /* GiphyPresenter.swift */,
-				B86EC755294E75280050617B /* Main.storyboard */,
-				F697086A296CA1B90008CC60 /* Mini.storyboard */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -298,9 +290,7 @@
 				F6970871296CA69B0008CC60 /* LaunchScreen.storyboard in Resources */,
 				B86EC759294E75290050617B /* Assets.xcassets in Resources */,
 				F68DB66D295FFE4A0085E73B /* README.md in Resources */,
-				B86EC757294E75280050617B /* Main.storyboard in Resources */,
 				F6970862296C4CFE0008CC60 /* Localizable.strings in Resources */,
-				F6970868296CA1B90008CC60 /* Mini.storyboard in Resources */,
 				F6970879296CA8100008CC60 /* InfoPlist.strings in Resources */,
 				F68DB6732960026F0085E73B /* YS Display-Medium.ttf in Resources */,
 			);
@@ -362,15 +352,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B86EC755294E75280050617B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B86EC756294E75280050617B /* Base */,
-				F697085C296C4AD70008CC60 /* ru */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F6970864296C4CFE0008CC60 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -378,15 +359,6 @@
 				F697087D296CB1A70008CC60 /* en */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		F697086A296CA1B90008CC60 /* Mini.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F6970869296CA1B90008CC60 /* Base */,
-				F697086C296CA1BC0008CC60 /* ru */,
-			);
-			name = Mini.storyboard;
 			sourceTree = "<group>";
 		};
 		F6970873296CA69B0008CC60 /* LaunchScreen.storyboard */ = {
