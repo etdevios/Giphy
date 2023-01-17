@@ -18,12 +18,12 @@ extension GiphyAPIModel {
 
 extension GiphyAPIModel.Data {
     struct Images: Decodable {
-        let preview_gif: PreviewGif?
+        let original: Original?
     }
 }
 
 extension GiphyAPIModel.Data.Images {
-    struct PreviewGif: Decodable {
+    struct Original: Decodable {
         let url: URL?
     }
 }

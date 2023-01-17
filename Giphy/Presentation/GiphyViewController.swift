@@ -17,6 +17,7 @@ final class GiphyViewController: UIViewController {
     private let titleLabel = UILabel()
     private let counterLabel = UILabel()
     
+    private let imagePaddingView = UIView()
     private let giphyImageView = UIImageView()
     
     private let paddingView = UIView()
@@ -68,8 +69,9 @@ private extension GiphyViewController {
         )
         
         giphyImageView.image = UIImage(named: "Giphy logo") ?? UIImage()
-        giphyImageView.contentMode = .scaleAspectFit
+        giphyImageView.contentMode = .scaleAspectFill
         giphyImageView.layer.cornerRadius = Theme.imageCornerRadius
+        giphyImageView.clipsToBounds = true
         
         applyStyleAnswerButton(yesButton, title: "👍")
         applyStyleAnswerButton(noButton, title: "👎")
@@ -83,7 +85,7 @@ private extension GiphyViewController {
             mainStackView,
             subviews: [
                 titleStackView,
-                giphyImageView,
+                imagePaddingView,
                 paddingView
             ],
             spacing: Theme.spacing,
@@ -96,6 +98,10 @@ private extension GiphyViewController {
         )
         counterLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         
+        giphyImageView.translatesAutoresizingMaskIntoConstraints = false
+        imagePaddingView.addSubview(giphyImageView)
+        
+        
         arrangeStackView(
             buttonStackView,
             subviews: [noButton, yesButton],
@@ -105,7 +111,7 @@ private extension GiphyViewController {
         
         buttonStackView.translatesAutoresizingMaskIntoConstraints = false
         paddingView.addSubview(buttonStackView)
-        buttonStackView.setContentCompressionResistancePriority(.required, for: .vertical)
+//        buttonStackView.setContentCompressionResistancePriority(.required, for: .vertical)
         
         [mainStackView, giphyActivityIndicatorView].forEach { item in
             item.translatesAutoresizingMaskIntoConstraints = false
@@ -120,7 +126,10 @@ private extension GiphyViewController {
             
             titleStackView.heightAnchor.constraint(equalToConstant: Theme.titleStackHeight),
             
-            giphyImageView.widthAnchor.constraint(equalTo: giphyImageView.heightAnchor, multiplier: Theme.imageHeightAspect),
+            imagePaddingView.widthAnchor.constraint(equalTo: imagePaddingView.heightAnchor, multiplier: Theme.imageHeightAspect),
+            giphyImageView.centerYAnchor.constraint(equalTo: imagePaddingView.centerYAnchor),
+            giphyImageView.leadingAnchor.constraint(equalTo: imagePaddingView.leadingAnchor),
+            giphyImageView.trailingAnchor.constraint(equalTo: imagePaddingView.trailingAnchor),
             
             giphyActivityIndicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             giphyActivityIndicatorView.centerYAnchor.constraint(equalTo: giphyImageView.centerYAnchor),

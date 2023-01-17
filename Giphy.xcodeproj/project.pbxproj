@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -263,7 +263,7 @@
 				};
 			};
 			buildConfigurationList = B86EC747294E75280050617B /* Build configuration list for PBXProject "Giphy" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -507,6 +507,8 @@
 				DEVELOPMENT_TEAM = 2W63BAHUHF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Giphy/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Гифи";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.graphics-design";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Разрешить приложению доступ к галереии?";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Разрешить приложению доступ к галереии?";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -518,7 +520,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.etdevios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.etdevios.giphy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -539,6 +541,8 @@
 				DEVELOPMENT_TEAM = 2W63BAHUHF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Giphy/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Гифи";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.graphics-design";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Разрешить приложению доступ к галереии?";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Разрешить приложению доступ к галереии?";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -550,7 +554,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.etdevios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.etdevios.giphy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
