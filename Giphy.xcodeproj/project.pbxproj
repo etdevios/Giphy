@@ -236,7 +236,8 @@
 				B86EC748294E75280050617B /* Sources */,
 				B86EC749294E75280050617B /* Frameworks */,
 				B86EC74A294E75280050617B /* Resources */,
-				F6DC1B5B29661C0600F19EA7 /* ShellScript */,
+				F6DC1B5B29661C0600F19EA7 /* TODO: FIXME: ERROR warning */,
+				F67D4B3F29776BDB004B8FFD /* Auto-increment build number */,
 			);
 			buildRules = (
 			);
@@ -299,7 +300,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		F6DC1B5B29661C0600F19EA7 /* ShellScript */ = {
+		F67D4B3F29776BDB004B8FFD /* Auto-increment build number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Auto-increment build number";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(xcodebuild -showBuildSettings | grep CURRENT_PROJECT_VERSION | tr -d 'CURRENT_PROJECT_VERSION =')\nbuildNumber=`echo $buildNumber +1|bc`\nxcrun agvtool new-version $buildNumber\n";
+		};
+		F6DC1B5B29661C0600F19EA7 /* TODO: FIXME: ERROR warning */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -309,6 +328,7 @@
 			);
 			inputPaths = (
 			);
+			name = "TODO: FIXME: ERROR warning";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -503,7 +523,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 2W63BAHUHF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Giphy/Info.plist;
@@ -537,7 +557,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 2W63BAHUHF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Giphy/Info.plist;
