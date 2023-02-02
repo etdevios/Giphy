@@ -101,7 +101,6 @@ private extension GiphyViewController {
         giphyImageView.translatesAutoresizingMaskIntoConstraints = false
         imagePaddingView.addSubview(giphyImageView)
         
-        
         arrangeStackView(
             buttonStackView,
             subviews: [noButton, yesButton],
@@ -111,7 +110,6 @@ private extension GiphyViewController {
         
         buttonStackView.translatesAutoresizingMaskIntoConstraints = false
         paddingView.addSubview(buttonStackView)
-//        buttonStackView.setContentCompressionResistancePriority(.required, for: .vertical)
         
         [mainStackView, giphyActivityIndicatorView].forEach { item in
             item.translatesAutoresizingMaskIntoConstraints = false
